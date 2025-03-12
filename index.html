@@ -8,12 +8,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
 
         body {
-            background-color: #ADF802; /* Lemon Green */
+            background-color: #00FF00; /* Temporary green, replace with exact shade */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column;
         }
 
         .box {
@@ -25,6 +26,7 @@
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
+            margin-bottom: 20px;
         }
 
         .text {
@@ -33,11 +35,19 @@
             font-weight: bold;
             color: #333;
         }
+
+        .image-container img {
+            width: 300px; /* Adjust size if needed */
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="box">
         <div class="text">Nova Pay</div>
     </div>
+    <div class="image-container">
+        <img src="https://i.postimg.cc/GtVYtPrc/IMG-20250312-WA0264-1.jpg" alt="Nova Pay Image">
+    </div>
 </body>
-  </html>
+</html>
