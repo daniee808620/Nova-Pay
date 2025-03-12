@@ -3,51 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Pay</title>
+    <title>PayNova</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
         body {
-            background-color: #00FF00; /* Temporary green, replace with exact shade */
+            background-color: #00FF00; /* Replace with exact green shade */
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            flex-direction: column;
+            text-align: center;
         }
 
-        .box {
-            background-color: white;
-            width: 300px;
-            height: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+        .logo img {
+            width: 150px; /* Adjust size if needed */
             margin-bottom: 20px;
         }
 
         .text {
-            font-family: 'Archivo', sans-serif;
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
+            font-family: 'Anton', sans-serif;
+            font-size: 22px;
+            color: purple;
+            width: 80%;
+            max-width: 400px;
+            margin-bottom: 20px;
         }
 
-        .image-container img {
-            width: 300px; /* Adjust size if needed */
-            border-radius: 10px;
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .button {
+            background-color: purple;
+            color: white;
+            font-family: 'Anton', sans-serif;
+            font-size: 18px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 150px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #6a0dad; /* Darker purple */
         }
     </style>
 </head>
 <body>
-    <div class="box">
-        <div class="text">Nova Pay</div>
+
+    <div class="logo">
+        <img src="https://i.postimg.cc/GtVYtPrc/IMG-20250312-WA0264-1.jpg" alt="PayNova Logo">
     </div>
-    <div class="image-container">
-        <img src="https://i.postimg.cc/GtVYtPrc/IMG-20250312-WA0264-1.jpg" alt="Nova Pay Image">
+
+    <div class="text">
+        Welcome to PayNova! It's time to register and earn just by performing tasks and referring friends!  
+        Simply sign up or log in to join the earning team now.
     </div>
+
+    <div class="button-container">
+        <a href="SignUp.html" class="button">Sign Up</a>
+        <a href="login.html" class="button">Log In</a>
+    </div>
+
 </body>
 </html>
