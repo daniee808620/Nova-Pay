@@ -1,0 +1,71 @@
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+        body {
+            font-family: 'Anton', sans-serif;
+            text-align: center;
+            background-color: #d4f7b3; /* Light green */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome {
+            font-size: 24px;
+            color: green;
+            margin-bottom: 10px;
+        }
+
+        .balance-box {
+            background: black;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .bonus {
+            font-size: 18px;
+            color: blue;
+            margin-top: 10px;
+        }
+
+    </style>
+    <script>
+        window.onload = function() {
+            const username = localStorage.getItem("username") || "User";
+            let balance = localStorage.getItem("balance");
+
+            if (balance === null) {
+                balance = 50; // Give ₦50 bonus on first login
+                localStorage.setItem("balance", balance);
+            }
+
+            document.getElementById("welcomeText").innerText = `Welcome ${username}`;
+            document.getElementById("balanceText").innerText = `Balance: ₦${balance}`;
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome" id="welcomeText">Welcome User</div>
+        <div class="balance-box" id="balanceText">Balance: ₦0</div>
+        <div class="bonus">🎉 You received ₦50 as a welcome bonus! 🎉</div>
+    </div>
+</body>
+</html>￼Enter
