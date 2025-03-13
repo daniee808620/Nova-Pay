@@ -4,87 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
-        body {
-            font-family: 'Anton', sans-serif;
-            text-align: center;
-            background-color: #d4f7b3; /* Light green */
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .welcome {
-            font-size: 24px;
-            color: green;
-            margin-bottom: 10px;
-        }
-
-        .balance-box {
-            background: black;
-            color: white;
-            padding: 15px;
-            font-size: 20px;
-            border-radius: 8px;
-            margin: 10px 0;
-        }
-
-        .user-info {
-            text-align: left;
-            margin-top: 15px;
-        }
-
-        .user-info p {
-            margin: 5px 0;
-            font-size: 16px;
-        }
-    </style>
-    <script>
-        window.onload = function() {
-            // Fetch user details from localStorage
-            const username = localStorage.getItem("username") || "User";
-            const email = localStorage.getItem("email") || "Not provided";
-            const phone = localStorage.getItem("phone") || "Not provided";
-            const referredBy = localStorage.getItem("referredBy") || "None";
-            
-            // Check and update balance
-            let balance = localStorage.getItem("balance");
-            if (balance === null) {
-                balance = 50; // First-time login: Give ₦50 starting balance
-            } else {
-                balance = parseInt(balance);
-            }
-            localStorage.setItem("balance", balance); // Ensure balance is stored
-
-            // Display user details
-            document.getElementById("welcomeText").innerText = `Welcome, ${username}!`;
-            document.getElementById("balanceText").innerText = `Balance: ₦${balance}`;
-            document.getElementById("emailText").innerText = `📧 Email: ${email}`;
-            document.getElementById("phoneText").innerText = `📞 Phone: ${phone}`;
-            document.getElementById("referralText").innerText = `👤 Referred by: ${referredBy}`;
-        };
-    </script>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS for styling -->
+    <script defer src="script.js"></script> <!-- External JS for logic -->
 </head>
 <body>
-    <div class="container">
-        <div class="welcome" id="welcomeText">Welcome, User!</div>
-        <div class="balance-box" id="balanceText">Balance: ₦0</div>
 
-        <div class="user-info">
-            <p id="emailText">📧 Email: Loading...</p>
-            <p id="phoneText">📞 Phone: Loading...</p>
-            <p id="referralText">👤 Referred by: Loading...</p>
+    <div class="container">
+        <h2 class="welcome-text">Welcome, <span id="username">User</span>!</h2>
+        
+        <div class="balance-box">
+            <p>Total Balance</p>
+            <h1><span id="balance">0.00</span> ₦</h1>
+        </div>
+
+        <div class="buttons">
+            <button class="btn withdraw">Withdraw</button>
+            <button class="btn tasks">Tasks</button>
+            <button class="btn bank">Bank</button>
+            <button class="btn settings">Settings</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <p>Total Referrals</p>
+                <h3 id="referrals">0</h3>
+            </div>
+            <div class="stat-box">
+                <p>Total Cashout</p>
+                <h3 id="cashout">0.00 ₦</h3>
+            </div>
+        </div>
+
+        <h3 class="transaction-title">Transactions</h3>
+        <div class="transactions">
+            <p>No transactions yet...</p>
         </div>
     </div>
+
+    <nav class="bottom-nav">
+        <button class="nav-btn">🏠 Dashboard</button>
+        <button class="nav-btn">🎰 Spin & Win</button>
+        <button class="nav-btn">🔗 Tasks</button>
+        <button class="nav-btn">💳 Withdraw</button>
+        <button class="nav-btn">⚙️ Settings</button>
+    </nav>
+
 </body>
-    </html>
+</html>
