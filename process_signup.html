@@ -4,34 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Processing Signup...</title>
-    <script>
-        // Get URL parameters (data from signup form)
-        const urlParams = new URLSearchParams(window.location.search);
-        const username = urlParams.get("username");
-        const email = urlParams.get("email");
-        const phone = urlParams.get("phone");
-        const referredBy = urlParams.get("referred_by");
-        const password = urlParams.get("password");
-
-        // Store user data in localStorage
-        if (username && email && phone && password) {
-            localStorage.setItem("username", username);
-            localStorage.setItem("email", email);
-            localStorage.setItem("phone", phone);
-            localStorage.setItem("referredBy", referredBy || "None");
-            localStorage.setItem("password", password);
-
-            // Wait for 5 seconds before redirecting
-            setTimeout(() => {
-                window.location.href = "dashboard.html";
-            }, 5000);
-        } else {
-            document.write("<h2>Error: Missing Information</h2>");
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
         }
-    </script>
+    </style>
 </head>
 <body>
     <h2>Processing Your Signup...</h2>
     <p>Please wait while we set up your account...</p>
+
+    <script>
+        // Function to get URL parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Fetch user data from URL
+        const username = getQueryParam("username");
+        const email = getQueryParam("email");
+        const phone = getQueryParam("phone");
+        const referredBy = getQueryParam("referred_by") || "None";
+        const password = getQueryParam("password");
+
+        // Validate user data before storing
+        if (username && email && phone && password) {
+            // Store user data in localStorage
+            localStorage.setItem("username", username);
+            localStorage.setItem("email", email);
+            localStorage.setItem("phone", phone);
+            localStorage.setItem("referredBy", referredBy);
+            localStorage.setItem("password", password);
+            localStorage.setItem("balance", 50); // New users start with ₦50 balance
+
+            // Show success message
+            document.body.innerHTML += "<p>Account created successfully! Redirecting...</p>";
+
+            // Redirect to dashboard after 5 seconds
+            setTimeout(() => {
+                window.location.href = "dashboard.html";
+            }, 5000);
+        } else {
+            document.body.innerHTML = "<h2>Error: Missing Information</h2><p>Please go back and complete the form.</p>";
+        }
+    </script>
 </body>
-  </html>
+</html>
