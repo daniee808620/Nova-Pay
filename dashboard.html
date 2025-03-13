@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,33 +39,52 @@
             margin: 10px 0;
         }
 
-        .bonus {
-            font-size: 18px;
-            color: blue;
-            margin-top: 10px;
+        .user-info {
+            text-align: left;
+            margin-top: 15px;
         }
 
+        .user-info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
     </style>
     <script>
         window.onload = function() {
+            // Fetch user details from localStorage
             const username = localStorage.getItem("username") || "User";
+            const email = localStorage.getItem("email") || "Not provided";
+            const phone = localStorage.getItem("phone") || "Not provided";
+            const referredBy = localStorage.getItem("referredBy") || "None";
+            
+            // Check and update balance
             let balance = localStorage.getItem("balance");
-
             if (balance === null) {
-                balance = 50; // Give ₦50 bonus on first login
-                localStorage.setItem("balance", balance);
+                balance = 50; // First-time login: Give ₦50 starting balance
+            } else {
+                balance = parseInt(balance);
             }
+            localStorage.setItem("balance", balance); // Ensure balance is stored
 
-            document.getElementById("welcomeText").innerText = `Welcome ${username}`;
+            // Display user details
+            document.getElementById("welcomeText").innerText = `Welcome, ${username}!`;
             document.getElementById("balanceText").innerText = `Balance: ₦${balance}`;
+            document.getElementById("emailText").innerText = `📧 Email: ${email}`;
+            document.getElementById("phoneText").innerText = `📞 Phone: ${phone}`;
+            document.getElementById("referralText").innerText = `👤 Referred by: ${referredBy}`;
         };
     </script>
 </head>
 <body>
     <div class="container">
-        <div class="welcome" id="welcomeText">Welcome User</div>
+        <div class="welcome" id="welcomeText">Welcome, User!</div>
         <div class="balance-box" id="balanceText">Balance: ₦0</div>
-        <div class="bonus">🎉 You received ₦50 as a welcome bonus! 🎉</div>
+
+        <div class="user-info">
+            <p id="emailText">📧 Email: Loading...</p>
+            <p id="phoneText">📞 Phone: Loading...</p>
+            <p id="referralText">👤 Referred by: Loading...</p>
+        </div>
     </div>
 </body>
-</html>￼Enter
+    </html>
