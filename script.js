@@ -1,16 +1,34 @@
+// Check if user is already signed up and redirect to dashboard
 window.onload = function() {
-    let username = localStorage.getItem("username") || "User";
-    let balance = localStorage.getItem("balance");
-    let referrals = localStorage.getItem("referrals") || 0;
-    let cashout = localStorage.getItem("cashout") || "0.00";
+    let username = localStorage.getItem("username");
 
-    if (balance === null) {
-        balance = 50; // Give ₦50 bonus on first login
-        localStorage.setItem("balance", balance);
+    if (username) {
+        window.location.href = "dashboard.html";
+    }
+};
+
+// Function to handle signup
+function saveUserData(event) {
+    event.preventDefault(); // Prevent form from refreshing the page
+
+    let username = document.getElementById("username").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let referredBy = document.getElementById("referred_by").value.trim();
+    let password = document.getElementById("password").value;
+
+    if (username === "" || email === "" || phone === "" || password === "") {
+        alert("Please fill in all required fields.");
+        return;
     }
 
-    document.getElementById("username").innerText = username;
-    document.getElementById("balance").innerText = balance;
-    document.getElementById("referrals").innerText = referrals;
-    document.getElementById("cashout").innerText = cashout + " ₦";
+    // Store user data in localStorage
+    localStorage.setItem("username", username);
+    localStorage.setItem("email", email);
+    localStorage.setItem("phone", phone);
+    localStorage.setItem("referred_by", referredBy);
+    localStorage.setItem("password", password);
+
+    // Redirect user to dashboard
+    window.location.href = "dashboard.html";
 }
