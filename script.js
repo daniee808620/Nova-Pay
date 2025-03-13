@@ -1,20 +1,20 @@
-function saveUserData(event) {
-    event.preventDefault(); // Prevent form from refreshing the page
+function loginUser(event) {
+    event.preventDefault(); // Prevent form refresh
 
-    // Get user input values
-    let username = document.getElementById("username").value;
-    let email = document.getElementById("email").value;
+    // Get input values
+    let usernameOrEmail = document.getElementById("usernameOrEmail").value;
     let phone = document.getElementById("phone").value;
-    let referredBy = document.getElementById("referred_by").value;
-    let password = document.getElementById("password").value;
 
-    // Save data in localStorage
-    localStorage.setItem("username", username);
-    localStorage.setItem("email", email);
-    localStorage.setItem("phone", phone);
-    localStorage.setItem("referredBy", referredBy);
-    localStorage.setItem("password", password);
+    // Get stored user data
+    let storedUsername = localStorage.getItem("username");
+    let storedEmail = localStorage.getItem("email");
+    let storedPhone = localStorage.getItem("phone");
 
-    // Redirect to login.html
-    window.location.href = "login.html";
+    // Validate login
+    if ((usernameOrEmail === storedUsername || usernameOrEmail === storedEmail) && phone === storedPhone) {
+        alert("Login Successful!");
+        window.location.href = "dashboard.html"; // Redirect to user dashboard
+    } else {
+        alert("Invalid credentials! Please try again.");
+    }
 }
