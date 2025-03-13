@@ -7,6 +7,16 @@ function saveUserData(event) {
     let phone = document.getElementById("phone").value;
     let password = document.getElementById("password").value;
 
+    // Check if email or phone is already registered
+    let existingEmail = localStorage.getItem("email");
+    let existingPhone = localStorage.getItem("phone");
+
+    if (email === existingEmail || phone === existingPhone) {
+        alert("You are already registered! Proceed to login.");
+        window.location.href = "login.html";
+        return;
+    }
+
     // Save user data to localStorage
     localStorage.setItem("username", username);
     localStorage.setItem("email", email);
@@ -24,7 +34,7 @@ function saveUserData(event) {
     messageBox.style.marginTop = "10px";
     messageBox.style.fontSize = "14px";
     messageBox.style.textAlign = "center";
-    
+
     // Insert message box after the form
     let form = document.querySelector("form");
     form.parentNode.insertBefore(messageBox, form.nextSibling);
