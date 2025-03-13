@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayNova - Login</title>
+    <script defer src="script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+        body {
+            background-color: blue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: 'Anton', sans-serif;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 350px;
+        }
+
+        .title {
+            font-size: 24px;
+            color: blue;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-btn {
+            background-color: green;
+            color: white;
+            font-size: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-btn:hover {
+            background-color: darkgreen;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .forgot-password a {
+            color: red;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo">
+        <img src="https://i.postimg.cc/nhhbpNTY/IMG-20250312-WA0535-1.jpg" alt="PayNova Logo">
+    </div>
+
+    <div class="container">
+        <div class="title">Login to PayNova</div>
+
+        <form onsubmit="loginUser(event)">
+            <input type="text" id="usernameOrEmail" placeholder="Username or Email" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <div class="forgot-password">
+            <a href="forgot_password.html">Forgot Password?</a>
+        </div>
+    </div>
+
+</body>
+</html>
